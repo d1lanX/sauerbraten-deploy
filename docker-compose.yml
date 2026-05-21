@@ -1,0 +1,10 @@
+services:
+  sour:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "1337:1337"
+      - "28785:28785/udp"
+    volumes:
+      - /home/willy/data/sauer/config.yml:/app/my-config.yaml
+    command: ["./sour", "serve", "/app/my-config.yaml"]
